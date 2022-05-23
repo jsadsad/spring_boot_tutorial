@@ -37,4 +37,10 @@ public class StudentController { // StudentController has a reference to Student
         studentService.deleteStudent(studentId);
     }
 
+    @PutMapping(path = "{studentId}")
+    public void updateStudent(@PathVariable("studentId") Long studentId, @RequestParam(required = false) String name, @RequestParam(required = false) String email) {
+        // It is important to note we are updating from the Params
+        studentService.updateStudent(studentId, name, email);
+    }
+
 }
