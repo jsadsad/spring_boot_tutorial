@@ -18,18 +18,22 @@ public class StudentConfig {
             Student josh = new Student(
                     "Joshua",
                     "test@example.com",
-                    LocalDate.of(1994, OCTOBER, 21),
-                    28
+                    LocalDate.of(1994, OCTOBER, 21)
             );
 
             Student chris = new Student(
                     "Chris",
                     "chris@example.com",
-                    LocalDate.of(1994, OCTOBER, 26),
-                    28
+                    LocalDate.of(1992, OCTOBER, 26)
             );
 
-            repo.saveAll(List.of(josh, chris));
+            Student helen = new Student(
+                    "Helen",
+                    "Helen@test.com",
+                    LocalDate.of(1993, OCTOBER, 12)
+            );
+
+            repo.saveAll(List.of(josh, chris, helen));
         };
     }
 }
