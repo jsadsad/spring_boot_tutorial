@@ -18,9 +18,10 @@ public class StudentService {
 
 
     public List<Student> getStudents() {
-/*        return List.of(
-
-        );*/
         return studentRepository.findAll(); // this returns a list to us
+    }
+
+    public void addNewStudent(Student student) {
+        System.out.println(student);
     }
 }
