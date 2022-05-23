@@ -4,6 +4,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Optional;
 
 // @Component // This allows this class to be a Spring Bean that recognizes it has to be instantiated to be autowired
 @Service // this is the same as @Component but is more semantic.
@@ -22,6 +23,12 @@ public class StudentService {
     }
 
     public void addNewStudent(Student student) {
-        System.out.println(student);
+        Optional<Student> studentOptional = studentRepository.findStudentByEmail(student.getEmail());
+
+        if (studentOptional.isPresent()) {
+            throw new IllegalStateException("Email Taken");
+        }
+
+        studentRepository.save(student);
     }
 }
